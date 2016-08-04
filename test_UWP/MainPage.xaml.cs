@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -27,9 +28,16 @@ namespace test_UWP
             this.InitializeComponent();
         }
 
-        private void OnButtonClick(object sender, RoutedEventArgs e)
+        private async void OnButtonClick(object sender, RoutedEventArgs e)
         {
-            this.TitleLabel.Text = this.InputTextBox.Text + "飲みましょう"; //DateTime.Now.ToString();
+            if (this.InputTextBox.Text != "TextBox")
+            {
+                this.TitleLabel.Text = this.InputTextBox.Text + "飲みましょう"; //DateTime.Now.ToString();
+            }
+            else
+            {
+                await new MessageDialog("ちゃんと入力してください").ShowAsync();
+            }
         }
     }
 }
