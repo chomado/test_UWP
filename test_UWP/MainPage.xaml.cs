@@ -29,7 +29,7 @@ namespace test_UWP
 
         private void OnButtonClick(object sender, RoutedEventArgs e)
         {
-            this.TitleLabel.Text = DateTime.Now.ToString();
+            this.TitleLabel.Text = this.InputTextBox.Text + "飲みましょう"; //DateTime.Now.ToString();
         }
     }
 }
