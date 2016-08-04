@@ -26,5 +26,10 @@ namespace test_UWP
         {
             this.InitializeComponent();
         }
+
+        private void OnButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.TitleLabel.Text = DateTime.Now.ToString();
+        }
     }
 }
