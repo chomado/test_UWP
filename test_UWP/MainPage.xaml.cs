@@ -32,12 +32,20 @@ namespace test_UWP
         {
             if (this.InputTextBox.Text != "TextBox")
             {
-                this.TitleLabel.Text = this.InputTextBox.Text + "飲みましょう"; //DateTime.Now.ToString();
+                //this.TitleLabel.Text = this.InputTextBox.Text + "飲みましょう"; //DateTime.Now.ToString();
+                this.SakeListView.Items.Add(this.InputTextBox.Text);
+
             }
             else
             {
                 await new MessageDialog("ちゃんと入力してください").ShowAsync();
             }
+        }
+
+        private void SakeListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.SakeListView.Items.Remove(this.SakeListView.SelectedItem);
+            //this.SakeListView.Items.RemoveAt(this.SakeListView.SelectedIndex);
         }
     }
 }
